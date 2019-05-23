@@ -1,0 +1,29 @@
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
+
+import home from './reducers/home';
+
+const config = {
+  key: 'dashboard_0.0.1',
+  storage: storage,
+  whitelist: ['home'] //持久化白名单
+};
+
+const rootReducer = combineReducers({
+  home
+});
+
+const composeEnhancers =
+  typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk),
+  // other store enhancers if any
+);
+
+export default createStore(persistReducer(config, rootReducer), enhancer);
