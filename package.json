@@ -21,6 +21,7 @@
     "history": "^4.9.0",
     "identity-obj-proxy": "3.0.0",
     "is-wsl": "^1.1.0",
+    "lodash": "^4.17.11",
     "pnp-webpack-plugin": "1.2.1",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.1",

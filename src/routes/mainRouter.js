@@ -3,20 +3,19 @@ import Loadable from 'react-loadable';
 import AsynLoadingComponent from '../components/asynLoadingComponent';
 import RouteModule from './routeModule';
 
-const Main= Loadable({
+const Home = Loadable({
   loader: () => import(
-   
-    '../pages/main'
+    /* webpackChunkName: "home" */
+    '../pages/home'
   ),
   loading: AsynLoadingComponent,
   delay: 300
 });
 
-
-const Login= Loadable({
+const Mine = Loadable({
   loader: () => import(
-    /* webpackChunkName: "login" */
-    '../pages/login'
+    /* webpackChunkName: "mine" */
+    '../pages/mine'
   ),
   loading: AsynLoadingComponent,
   delay: 300
@@ -24,14 +23,14 @@ const Login= Loadable({
 
 const routes = [
   {
-    path: '/login',
-    exact: true,
-    component: Login,
-  },
-  {
     path: '/',
     exact: true,
-    component: Main,
+    component: Home,
+  },
+  {
+    path: '/mine',
+    exact: true,
+    component: Mine,
   },
 ];
 
