@@ -4,15 +4,17 @@ import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 import home from './reducers/home';
+import login from './reducers/login';
 
 const config = {
   key: 'dashboard_0.0.1',
   storage: storage,
-  whitelist: ['home'] //持久化白名单
+  whitelist: ['login'] //持久化白名单
 };
 
 const rootReducer = combineReducers({
-  home
+  home,
+  login
 });
 
 const composeEnhancers =

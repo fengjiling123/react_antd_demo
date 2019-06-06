@@ -1,6 +1,9 @@
 import React from "react";
-import SideMenu from '../../components/sideMenu';
-import MainRouter from "../../routes/mainRouter";
+import SideMenu from "@/components/sideMenu";
+import MainRouter from "@/routes/mainRouter";
+import Header from "@/components/header";
+
+import "./index.less";
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -10,8 +13,11 @@ class IndexPage extends React.Component {
     return (
       <div className="--main">
         <SideMenu />
-        <div>
-          <MainRouter />
+        <div className="main-right">
+          <Header />
+          <div className="routes">
+            <MainRouter />
+          </div>
         </div>
       </div>
     );

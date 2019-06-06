@@ -1,20 +1,18 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
-import Routes from './routes/index';
-import { createBrowserHistory } from 'history';
-import { LocaleProvider } from 'antd';
-import { Provider } from 'react-redux';
-import { persistStore } from 'redux-persist';
-import { PersistGate } from 'redux-persist/integration/react';
-import store from './store';
-import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import React from "react";
+import { Router } from "react-router-dom";
+import Routes from "./routes/index";
+import { LocaleProvider } from "antd";
+import { Provider } from "react-redux";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+import store from "./store";
+import zh_CN from "antd/lib/locale-provider/zh_CN";
+import history from './utils/history';
 
-const history = createBrowserHistory();
-let persistor = persistStore(store);
+const persistor = persistStore(store);
 
 class App extends React.Component {
-
-  render () {
+  render() {
     return (
       <LocaleProvider locale={zh_CN}>
         <Provider store={store}>
@@ -25,9 +23,8 @@ class App extends React.Component {
           </PersistGate>
         </Provider>
       </LocaleProvider>
-    )
+    );
   }
 }
 
 export default App;
-

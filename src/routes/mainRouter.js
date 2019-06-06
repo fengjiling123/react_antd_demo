@@ -22,15 +22,16 @@ const Mine = Loadable({
 });
 
 const routes = [
-  {
-    path: '/',
-    exact: true,
-    component: Home,
-  },
+
   {
     path: '/mine',
     exact: true,
     component: Mine,
+  },
+  {
+    path: '/',
+    exact: true,
+    component: Home,
   },
 ];
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 // import LogoImg from '@/assets/images/logo.png';
-import sideMenuData from "@/utils/sideMenuData";
+import sideMenuData from "./sideMenuData";
 import { Menu, Icon, Switch } from "antd";
 // import history from '@/utils/history';
 import { withRouter } from "react-router-dom";
@@ -40,7 +40,17 @@ class SideMenu extends React.Component {
     return (
       <div className="side-menu-container">
         <div className="logo">
-          {/* <img src={LogoImg} className="logo-img" /> */}
+          <span
+            style={{
+              color: "#fff",
+              fontSize: "32px",
+              lineHeight: "90px",
+              wordSpacing: "12px",
+              letterSpacing: "10px"
+            }}
+          >
+            运营端
+          </span>
         </div>
         <div className="menus">
           <Menu
@@ -51,12 +61,12 @@ class SideMenu extends React.Component {
             theme="dark"
           >
             {sideMenuData.map(item =>
-              item.children  ? (
+              item.children ? (
                 <SubMenu
                   key={item.key}
                   title={
                     <span>
-                      <img src={item.icon} className="icon" />
+                      <Icon type={item.icon} className="icon" />
                       <span>{item.name}</span>
                     </span>
                   }
@@ -67,7 +77,7 @@ class SideMenu extends React.Component {
                 </SubMenu>
               ) : (
                 <Menu.Item key={item.path}>
-                  <img src={item.icon} className="icon" />
+                  <Icon type={item.icon} className="icon" />
                   {item.name}
                 </Menu.Item>
               )
@@ -79,8 +89,4 @@ class SideMenu extends React.Component {
   }
 }
 
-export default withRouter(
-  connect(state => ({
-    
-  }))(SideMenu)
-);
+export default withRouter(connect(state => ({}))(SideMenu));
